@@ -9,6 +9,7 @@ type Notifications = {
     message: string;
     amount: number;
 }
+
 export default function NotificationsPage() {
 
     const [notifications, setNotifications] = useState<Notifications[]>([])
@@ -36,8 +37,8 @@ export default function NotificationsPage() {
 
     return (
         <section className="grid gap-4 items-center justify-center absolute bottom-4 right-4 bg-black rounded-md border p-4">
-            <p className="text-2xl font-bold"> {notifications[0].amount.toLocaleString('es-AR', { style: 'currency', currency: 'ARS' })}</p>
-            <p> {notifications[0].message}</p>
+            <p className="text-2xl font-bold">${notifications[0]?.amount}</p>
+            <p> {notifications[0]?.message}</p>
         </section>
     )
 }
