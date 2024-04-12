@@ -25,11 +25,12 @@ export function FormDonation() {
                 back_urls: {
                     success: 'https://api-donations-thomi.vercel.app/',
                     pending: 'https://api-donations-thomi.vercel.app/',
-                }
+                },
+                marketplace_fee: 10
             },
         });
 
-        redirect(compra?.sandbox_init_point!);
+        redirect(compra.init_point!);
     }
     return (
         <div className="max-w-md mx-auto p-6 bg-gray-700 rounded-lg shadow-md">
