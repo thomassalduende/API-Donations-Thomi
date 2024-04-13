@@ -25,8 +25,8 @@ export function FormDonation() {
                 ],
                 back_urls: {
                     success: 'https://api-donations-thomi.vercel.app/',
-                    failure: 'https://api-donations-thomi.vercel.app/',
                     pending: 'https://api-donations-thomi.vercel.app/',
+                    failure: 'https://api-donations-thomi.vercel.app/'
                 },
                 // payer: {
                 //     name: 'Enzo Bua',
@@ -37,11 +37,12 @@ export function FormDonation() {
                 //     email: 'enzobua86@gmail.com',
                 // },
                 auto_return: 'approved',
-                notification_url: 'https://api-donations-thomi.vercel.app/payment',
+                notification_url: 'https://1c8c-190-17-57-6.ngrok-free.app/pagos',
                 payment_methods: {
                     installments: 6,
                     excluded_payment_methods: [
-                        { id: 'visa' }
+                        { id: 'credit_card' },
+                        { id: 'prepaid_card' }
                     ],
                 }
             }
