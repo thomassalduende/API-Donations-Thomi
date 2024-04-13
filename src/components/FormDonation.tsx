@@ -1,6 +1,6 @@
 import { MercadoPagoConfig, Preference } from 'mercadopago'
 import { redirect } from 'next/navigation';
-const client = new MercadoPagoConfig({ accessToken: process.env.MP_ACCESS_TOKEN! })
+const client = new MercadoPagoConfig({ accessToken: process.env.MP_ACCESS_TOKEN!, options: { integratorId: process.env.INTEGRATOR_ID! } })
 
 export function FormDonation() {
 
@@ -19,24 +19,32 @@ export function FormDonation() {
                         id: 'donation',
                         title: message,
                         quantity: 1,
-                        unit_price: Number(amount)
+                        unit_price: Number(amount),
+                        picture_url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQB98zj8YaRzjuIe5H_Is1kcdFxpjAJw6oN1IQthf-nXA&s"
                     }
                 ],
                 back_urls: {
                     success: 'https://api-donations-thomi.vercel.app/',
+                    failure: 'https://api-donations-thomi.vercel.app/',
                     pending: 'https://api-donations-thomi.vercel.app/',
                 },
-                payer: {
-                    name: 'Enzo Bua',
-                    phone: {
-                        area_code: '3446',
-                        number: '377934'
-                    },
-                    email: 'enzobua86@gmail.com',
-                },
+                // payer: {
+                //     name: 'Enzo Bua',
+                //     phone: {
+                //         area_code: '3446',
+                //         number: '377934'
+                //     },
+                //     email: 'enzobua86@gmail.com',
+                // },
                 auto_return: 'approved',
-                notification_url: 'https://api-donations-thomi.vercel.app/payment'
-            },
+                notification_url: 'https://api-donations-thomi.vercel.app/payment',
+                payment_methods: {
+                    installments: 6,
+                    excluded_payment_methods: [
+                        { id: 'visa' }
+                    ],
+                }
+            }
         });
 
         redirect(compra.init_point!);
