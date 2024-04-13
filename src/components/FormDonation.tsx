@@ -37,7 +37,7 @@ export function FormDonation() {
                     email: 'enzobua86@gmail.com',
                 },
                 auto_return: 'approved',
-                notification_url: 'https://1c8c-190-17-57-6.ngrok-free.app/pagos',
+                notification_url: 'https://api-donations-thomi.vercel.app/payment',
                 payment_methods: {
                     installments: 6,
 
