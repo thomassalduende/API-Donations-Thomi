@@ -1,5 +1,5 @@
 import MercadoPagoConfig, { Payment } from "mercadopago";
-import { NextRequest } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
 
 const client_mp = new MercadoPagoConfig({ accessToken: process.env.MP_ACCESS_TOKEN! });
@@ -12,7 +12,7 @@ type Data = {
 }
 
 
-export async function POST(request: NextRequest) {
+export async function POST(request: NextRequest, response: NextResponse) {
     const body = await request.json().then(data => data as Data);
 
     const payment = await new Payment(client_mp).get({ id: body.data.id })

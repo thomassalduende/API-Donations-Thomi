@@ -26,7 +26,16 @@ export function FormDonation() {
                     success: 'https://api-donations-thomi.vercel.app/',
                     pending: 'https://api-donations-thomi.vercel.app/',
                 },
-                marketplace_fee: 10
+                payer: {
+                    name: 'Enzo Bua',
+                    phone: {
+                        area_code: '3446',
+                        number: '377934'
+                    },
+                    email: 'enzobua86@gmail.com',
+                },
+                auto_return: 'approved',
+                notification_url: 'https://api-donations-thomi.vercel.app/payment'
             },
         });
 
